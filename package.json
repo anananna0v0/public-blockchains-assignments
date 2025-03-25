@@ -1,0 +1,24 @@
+{
+  "name": "public-blockchains-assignments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anananna0v0/public-blockchains-assignments.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anananna0v0/public-blockchains-assignments/issues"
+  },
+  "homepage": "https://github.com/anananna0v0/public-blockchains-assignments#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5"
+  }
+}
