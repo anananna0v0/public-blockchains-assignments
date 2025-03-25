@@ -25,8 +25,8 @@ const { getUserAnswer, extractQuestion } =
 
 const providerKey = process.env.ALCHEMY_KEY;
 const sepoliaUrl = `${process.env.ALCHEMY_SEPOLIA_API_URL}${providerKey}`;
-console.log("ALCHEMY_SEPOLIA_API_URL:", process.env.ALCHEMY_SEPOLIA_API_URL);
-console.log("ALCHEMY_KEY:", process.env.ALCHEMY_KEY);
+// console.log("ALCHEMY_SEPOLIA_API_URL:", process.env.ALCHEMY_SEPOLIA_API_URL);
+// console.log("ALCHEMY_KEY:", process.env.ALCHEMY_KEY);
 
 const sepoliaProvider = new ethers.JsonRpcProvider(sepoliaUrl);
 // console.log(sepoliaUrl);
@@ -57,7 +57,9 @@ async function main() {
     // From the transaction receipt we can extract useful information, such as
     // as the question's text and id that were stored in the logs
     // (we will understand logs in detail later in the course).
-    const { text, id } = extractQuestion(quizContract, receipt); // 提取問題
+    const { text, id } = extractQuestion(quizContract, receipt); // 提取問題 (text)
+    console.log(`Question: ${text}`); // ✅ 這行會顯示問題文字
+    console.log(`Question ID: ${id}`); // ✅ 這行會顯示問題 ID
 
     if (!text) {
         console.log('An error occurred, please try again.');
@@ -66,19 +68,24 @@ async function main() {
         return;
     }
 
-// //     // Now YOU answer the question!
-// //     // Capture user input from the terminal.
-// //     const userAnswer = await getUserAnswer();
+    // Now YOU answer the question!
+    // Capture user input from the terminal.
+    const userAnswer = await getUserAnswer(); // 會提示你輸入 yes 或 no
 
-// //     // B. Send the answer to the smart contract.
-// //     // Hint: method `answerQuestion`.
+    // B. Send the answer to the smart contract.
+    // Hint: method `answerQuestion`.
 
-// //     // Your code here.
+    // Your code here.
+    console.log(`Answering the question with ID: ${id}`);
+    const answerTx = await quizContract.answerQuestion(id, userAnswer);
+    await answerTx.wait();
+    console.log("Answer submitted successfully!");
 
-// //     // C. Optional. Verify that the answer is correctly stored.
-// //     // Hint: method `getAnswer(questionId)`
 
-// //     // Your code here.
+    // C. Optional. Verify that the answer is correctly stored.
+    // Hint: method `getAnswer(questionId)`
+
+    // Your code here.
 }
 
 
