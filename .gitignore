@@ -68,7 +68,6 @@ now_abi.json
 *.nb.html
 send_now_coins*
 send_now_tokens*
-deploy_my_quiz.js
 
 myquiz2*
 
