@@ -1,3 +1,4 @@
+// --------------------Assignment 1-------------------- // //Scroll down for assignment 2//
 // Ethers JS: Quiz Contract.
 ////////////////////////////
 
@@ -7,9 +8,9 @@
 // Load dependencies.
 /////////////////////
 
-const path = require("path");
+// const path = require("path");
 
-const ethers = require("ethers");
+// const ethers = require("ethers");
 
 // Adjust path to your .env file.
 const pathToDotEnv = path.join(__dirname, "..", "..", ".env");
