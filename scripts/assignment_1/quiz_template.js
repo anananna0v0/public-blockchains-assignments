@@ -86,6 +86,11 @@ async function main() {
     // Hint: method `getAnswer(questionId)`
 
     // Your code here.
+    console.log(`Verifying answer for question ID: ${id}`);
+    const [storedAnswer, answerIsCorrect] = await quizContract.getAnswer(id);
+
+    console.log(`Stored Answer: ${storedAnswer ? "Yes" : "No"}`);
+    console.log(`Answer Correct: ${answerIsCorrect ? "Yes" : "No"}`);
 }
 
 
